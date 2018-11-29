@@ -103,11 +103,11 @@ with tf.Graph().as_default() as graph:
     
     with sv.managed_session() as sess:
 
-        for i in xrange(len(images_list) / 10 + 1):
+        for i in range(len(images_list) / 10 + 1):
             segmentations = sess.run(predictions)
             # print segmentations.shape
 
-            for j in xrange(segmentations.shape[0]):
+            for j in range(segmentations.shape[0]):
                 #Stop at the 233rd image as it's repeated
                 if i*10 + j == 223:
                     break
