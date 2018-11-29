@@ -281,7 +281,7 @@ def run():
 
         # Run the managed session
         with sv.managed_session() as sess:
-            for step in xrange(int(num_steps_per_epoch * num_epochs)):
+            for step in range(int(num_steps_per_epoch * num_epochs)):
                 #At the start of every epoch, show the vital information:
                 if step % num_batches_per_epoch == 0:
                     logging.info('Epoch %s/%s', step/num_batches_per_epoch + 1, num_epochs)
@@ -294,7 +294,7 @@ def run():
 
                     #Check the validation data only at every third of an epoch
                     if step % (num_steps_per_epoch / 3) == 0:
-                        for i in xrange(len(image_val_files) / eval_batch_size):
+                        for i in range(len(image_val_files) / eval_batch_size):
                             validation_accuracy, validation_mean_IOU = eval_step(sess, metrics_op_val)
 
                     summaries = sess.run(my_summary_op)
@@ -323,7 +323,7 @@ def run():
                 logging.info('Saving the images now...')
                 predictions_value, annotations_value = sess.run([predictions_val, annotations_val])
 
-                for i in xrange(eval_batch_size):
+                for i in range(eval_batch_size):
                     predicted_annotation = predictions_value[i]
                     annotation = annotations_value[i]
 
